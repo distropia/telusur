@@ -1,0 +1,9 @@
+<h1>{{ post.title }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<img src={{ post.attachment.url }} />
+{% csrf_token %}
+<div>
+{{ post.content | safe }}
+</div>
