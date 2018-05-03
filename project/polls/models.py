@@ -3,22 +3,24 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from posts.models import Attachment
+from posts.models import Attachment, Tag
+from ckeditor.fields import RichTextField
 
 
 class Question(models.Model):
     title = models.CharField(max_length=200, null=True)
     question_text = models.CharField(max_length=200, null=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-    content = models.TextField(null=True)
+    content = RichTextField(null=True)
     url = models.TextField(null=True)
+    tags = models.ManyToManyField(Tag)
     attachment = models.ForeignKey(Attachment, null=True, on_delete=models.CASCADE)
     publish = models.BooleanField(default=False)
     pub_date = models.DateTimeField('date published')
     votes = models.IntegerField(null=True, default=0)
 
     def __str__(self):
-        return self.question_text
+        return self.title
 
     def was_published_recently(self):
         now = timezone.now()
