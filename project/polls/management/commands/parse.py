@@ -163,6 +163,27 @@ def find_authors(tree):
         print("[WARN] Found no authors!")
         return False
 
+def find_categories(tree):
+    category_elems = tree.findall(".//wp:category", namespaces=namespaces)
+    categories = []
+    for category_elem in category_elems:
+        term_id = category_elem.find("./wp:term_id", namespaces=namespaces).text
+        parent = category_elem.find("./wp:category_parent", namespaces=namespaces).text
+        slug = category_elem.find("./wp:category_nicename", namespaces=namespaces).text
+        name = category_elem.find("./wp:cat_name", namespaces=namespaces).text
+        categories.append({
+            'id': term_id,
+            'parent': parent,
+            'slug': slug,
+            'name': name
+        })
+    if len(categories) > 0:
+        print("Found %i categories" % len(categories))
+        return categories
+    else:
+        print("[WARN] Found no categories!")
+        return False
+
 
 def find_tags(tree):
     tag_elems = tree.findall(".//wp:tag", namespaces=namespaces)
@@ -200,6 +221,12 @@ def find_posts(tree, published=True):
         local_stamp = local.localize(post_stamp, is_dst=None)
         utc_stamp = local_stamp.astimezone(pytz.utc)
         post.post_date = utc_stamp
+        category_elems = post_elem.xpath("./category[@domain='category']")
+        categories = []
+        if category_elems is not None:
+            for category in category_elems:
+                categories.append(category.get('nicename'))
+        post.categories = categories
         tag_elems = post_elem.xpath("./category[@domain='post_tag']")
         tags = []
         if tag_elems is not None:

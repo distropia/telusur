@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.contrib.auth.models import User
 from django.utils import timezone
 from polls.models import Question, Choice, Information
-from posts.models import Post, Tag, PostTag, Attachment
+from posts.models import Post, Category, Tag, Attachment
 from progressbar import ProgressBar, Percentage, Bar
 from .parse import *
 
@@ -13,6 +13,7 @@ class Command(BaseCommand):
     help = 'Import wordpress data'
 
     authors = []
+    categories = []
     tags = []
     posts = []
     polls = []
@@ -23,18 +24,20 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             # self.authors = find_authors(tree)
-            # self.tags = find_tags(tree)
+            self.categories = find_categories(tree)
+            self.tags = find_tags(tree)
             self.attachments = find_attachments(tree, False, 'static/attachments')
-            # self.posts = find_posts(tree)
-            self.polls = find_polls(tree)
+            self.posts = find_posts(tree)
+            # self.polls = find_polls(tree)
         except:
             self.stdout.write(self.style.ERROR(str(sys.exc_info())))
         
         # self.import_authors()
-        # self.import_tags()
+        self.import_categories()
+        self.import_tags()
         # self.import_attachments()
-        # self.import_posts()
-        self.import_polls()
+        self.import_posts()
+        # self.import_polls()
         
         self.stdout.write(self.style.SUCCESS("Successfully import wordpress data."))
 
@@ -55,6 +58,23 @@ class Command(BaseCommand):
             progress.update(i)
         progress.finish()
 
+    def import_categories(self):
+        self.stdout.write(self.style.MIGRATE_LABEL("Importing Categories"))
+        progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(self.categories) * 2).start()
+        for i, category in enumerate(self.categories):
+            objCategory = Category(
+                id=category.get('id'),
+                name=category.get('name'),
+                slug=category.get('slug')
+                )
+            objCategory.save()
+            progress.update(i)
+        for i, category in enumerate(self.categories):
+            objCategory = Category.objects.get(pk=category.get('id'))
+            objCategory.parent = Category.objects.get(slug=category.get('parent')) if category.get('parent') else None
+            objCategory.save()
+            progress.update(i)        
+        progress.finish()
 
     def import_tags(self):
         self.stdout.write(self.style.MIGRATE_LABEL("Importing Tags"))
@@ -68,7 +88,6 @@ class Command(BaseCommand):
             objTag.save()
             progress.update(i)
         progress.finish()
-
 
     def import_attachments(self):
         self.stdout.write(self.style.MIGRATE_LABEL("Importing Attachments"))
@@ -84,12 +103,11 @@ class Command(BaseCommand):
             progress.update(i)
         progress.finish()
 
-
     def import_posts(self):
         self.stdout.write(self.style.MIGRATE_LABEL("Importing Posts"))
         progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(self.posts)).start()
         for i, post in enumerate(self.posts):
-            post.adjust_paths(attachments=self.attachments, prefix=self.attachment_path)
+            # post.adjust_paths(attachments=self.attachments, prefix=self.attachment_path)
             post.fix_paragraphs()
             post.fix_more()
             attachment = None
@@ -106,14 +124,18 @@ class Command(BaseCommand):
                 pub_date=post.post_date
                 )
             objPost.save()
+            tags = []
             for tag in post.tags:
-                postObj = Post.objects.get(pk=post.id)
                 tag = Tag.objects.get(slug=tag)
-                objPostTag = PostTag(post=postObj, tag=tag)
-                objPostTag.save()
+                objPost.tags.add(tag)
+                objPost.save()
+            categories = []
+            for category in post.categories:
+                category = Category.objects.get(slug=category)
+                objPost.categories.add(category)
+                objPost.save()
             progress.update(i)
         progress.finish()
-
 
     def import_polls(self):
         self.stdout.write(self.style.MIGRATE_LABEL("Importing Polls"))
@@ -165,6 +187,11 @@ class Command(BaseCommand):
                     defect = defect + 1
                     pass
             objPoll.save()
+            tags = []
+            for tag in post.tags:
+                tag = Tag.objects.get(slug=tag)
+                objPoll.tags.add(tag)
+                objPoll.save()
             progress.update(i)
         progress.finish()
         self.stdout.write(self.style.ERROR("DEFECT answers: " + str(defect)))
