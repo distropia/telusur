@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'telusur.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'production_telusur',
+        'NAME': 'test_db',
         'USER': 'root',
-        'PASSWORD': '566856'
+        'PASSWORD': ''
     }
 }
 
