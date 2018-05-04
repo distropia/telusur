@@ -23,21 +23,21 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-            # self.authors = find_authors(tree)
+            self.authors = find_authors(tree)
             self.categories = find_categories(tree)
             self.tags = find_tags(tree)
             self.attachments = find_attachments(tree, False, 'static/attachments')
             self.posts = find_posts(tree)
-            # self.polls = find_polls(tree)
+            self.polls = find_polls(tree)
         except:
             self.stdout.write(self.style.ERROR(str(sys.exc_info())))
         
-        # self.import_authors()
+        self.import_authors()
         self.import_categories()
         self.import_tags()
-        # self.import_attachments()
+        self.import_attachments()
         self.import_posts()
-        # self.import_polls()
+        self.import_polls()
         
         self.stdout.write(self.style.SUCCESS("Successfully import wordpress data."))
 
