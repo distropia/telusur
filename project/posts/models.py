@@ -6,15 +6,15 @@ from django.contrib.auth.models import AbstractUser
 
 class Tag(models.Model):
     name = models.CharField(max_length=200)
-    slug = models.CharField(max_length=200)
-
+    slug = models.SlugField(unique=True, null=True, max_length=200)
+    
     def __str__(self):
         return self.name
 
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
-    slug = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, null=True, max_length=200)
     parent = models.ForeignKey('self', null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class Category(models.Model):
 
 class Attachment(models.Model):
     title = models.CharField(max_length=200, null=True)
-    url = models.TextField(null=True)
+    path = models.TextField(null=True)
     attch_type = models.CharField(max_length=200, null=True)
 
 

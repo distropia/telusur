@@ -13,6 +13,7 @@ class Question(models.Model):
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     content = RichTextField(null=True)
     url = models.TextField(null=True)
+    slug = models.SlugField(unique=True, null=True, max_length=200)
     tags = models.ManyToManyField(Tag)
     attachment = models.ForeignKey(Attachment, null=True, on_delete=models.CASCADE)
     publish = models.BooleanField(default=False)
