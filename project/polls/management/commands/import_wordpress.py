@@ -3,6 +3,7 @@ import pytz
 from django.core.management.base import BaseCommand, CommandError
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.db import IntegrityError
 from polls.models import Question, Choice, Information
 from posts.models import Post, Category, Tag, Attachment
 from progressbar import ProgressBar, Percentage, Bar
@@ -18,7 +19,7 @@ class Command(BaseCommand):
     posts = []
     polls = []
     attachments = []
-    attachment_path = 'https://telusur.co.id/attachments/'
+    attachment_path = os.path.join('static/attachments/')
     default_password = 'telusur1234'
 
     def handle(self, *args, **options):
@@ -26,7 +27,7 @@ class Command(BaseCommand):
             self.authors = find_authors(tree)
             self.categories = find_categories(tree)
             self.tags = find_tags(tree)
-            self.attachments = find_attachments(tree, False, 'static/attachments')
+            self.attachments = find_attachments(tree, False, self.attachment_path)
             self.posts = find_posts(tree)
             self.polls = find_polls(tree)
         except:
@@ -93,10 +94,11 @@ class Command(BaseCommand):
         self.stdout.write(self.style.MIGRATE_LABEL("Importing Attachments"))
         progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(self.attachments)).start()
         for i, attachment in enumerate(self.attachments):
+            attachment.adjust_path(self.attachment_path)
             objAtt = Attachment(
                 id=attachment.id,
                 title=attachment.title,
-                url=attachment.url,
+                path=attachment.url,
                 attch_type = "featured_image"
                 )
             objAtt.save()
@@ -119,11 +121,24 @@ class Command(BaseCommand):
                 author=User.objects.get(username=post.creator),
                 content=post.body,
                 url=post.url,
+                slug=post.slug,
                 attachment=attachment,
                 publish=True,
                 pub_date=post.post_date
                 )
-            objPost.save()
+
+            counter = 1
+            result = None
+            while result is None:
+                try:
+                    if counter > 1:
+                        objPost.slug = post.slug + "-" + str(counter)
+                    counter = counter + 1
+                    objPost.save()
+                    result = True
+                except IntegrityError as e:
+                    self.style.ERROR(str(e))
+                
             tags = []
             for tag in post.tags:
                 tag = Tag.objects.get(slug=tag)
@@ -142,7 +157,8 @@ class Command(BaseCommand):
         progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(self.polls)).start()
         defect = 0
         for i, post in enumerate(self.polls):
-            post.adjust_paths(attachments=self.attachments, prefix=self.attachment_path)
+            # post.adjust_paths(attachments=self.attachments, prefix=self.attachment_path)
+            post.adjust_urls()
             post.fix_paragraphs()
             post.fix_more()
             attachment = None
@@ -155,6 +171,7 @@ class Command(BaseCommand):
                 author=User.objects.get(username=post.creator),
                 content=post.body,
                 url=post.url,
+                slug=post.slug,
                 attachment=attachment,
                 publish=True,
                 pub_date=post.post_date,
@@ -162,10 +179,13 @@ class Command(BaseCommand):
                 )
             objPoll.save()
             for choice in post.choices:
+                attachment = None
+                if choice.get('thumbnail_id'):
+                    attachment = Attachment.objects.get(pk=choice.get('thumbnail_id'))
                 objChoice = Choice(
                     question=objPoll,
                     choice_text=choice.get('label'),
-                    attachment=Attachment.objects.get(pk=choice.get('thumbnail_id')),
+                    attachment=attachment,
                     visible=choice.get('visible'),
                     # votes=choice.get('votes')
                     )

@@ -3,6 +3,7 @@ from progressbar import ProgressBar, Percentage, Bar
 from dateutil import parser, tz
 from collections import OrderedDict
 from phpserialize import loads, dumps, phpobject, unserialize, serialize
+from django.utils.text import slugify
 
 import re
 import unidecode
@@ -16,18 +17,11 @@ import json
 import sys
 
 
-DEBUG = True
+DEBUG = False
 FILENAME = 'telusur.wordpress.2018-04-21.xml'
 
 tree = etree.parse(FILENAME)
 namespaces = tree.getroot().nsmap
-
-def slugify(string):
-    if string is not None:
-        string = unidecode.unidecode(string).lower()
-        return re.sub(r'\W+', '-', string)
-    else:
-        return ""
 
 class PostWP:
     """ Ommitted from the XML standard:
@@ -73,6 +67,10 @@ class PostWP:
                     self.body = self.body.replace(attachment.url, new_url)
                     if DEBUG:
                         print("[DEBG] Replaced " + attachment.url + " with " + new_url)
+
+    def adjust_urls(self):
+        new_url = self.url.replace('https://telusur.co.id', '')
+        self.url = new_url
 
     def fix_paragraphs(self):
         fixed = self.body.replace('\n', '</p><p>')
@@ -121,11 +119,20 @@ class AttachmentWP:
             title = self.url.split('/')[-1]
             attachment = requests.get(self.url)
             if attachment.status_code == requests.codes.ok:
-                f = open(os.path.join(path, title), 'wb')
-                f.write(attachment.content)
-                f.close()
+                try:
+                    if not os.path.exists(path):
+                        os.makedirs(path)
+                    f = open(os.path.join(path, title), 'wb')
+                    f.write(attachment.content)
+                    f.close()
+                except:
+                    print(sys.exc_info())
             else:
                 attachment.raise_for_status()
+
+    def adjust_path(self, prefix=''):
+        new_url = prefix + self.url.replace('https://telusur.co.id/wp-content/uploads', '')
+        self.url = new_url
 
 
 def find_blog(tree):
@@ -361,11 +368,14 @@ def find_attachments(tree, download=True, path='attachments'):
             print("Downloading %i attachments" % len(attachments))
             progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(attachments)).start()
             for i, attachment in enumerate(attachments):
-                attachment.download(path)
+                try:
+                    attachment.download(path)
+                except:
+                    print(sys.exc_info())
                 progress.update(i)
             progress.finish()
             print("Downloaded %i attachments" % len(attachments))
         return attachments
     else:
         print("[WARN] Found no attachments!")
-        return False
+        return False 
