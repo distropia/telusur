@@ -64,3 +64,4 @@ target/
 *.xml
 
 project/telusur/settings.py
+project/static/attachments/
