@@ -18,7 +18,7 @@ import sys
 
 
 DEBUG = False
-FILENAME = 'telusur.wordpress.2018-04-21.xml'
+FILENAME = 'telusur.wordpress.2018-08-17.xml'
 
 tree = etree.parse(FILENAME)
 namespaces = tree.getroot().nsmap
