@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import urls
-from telusur import views
+from . import views
 
 admin.site.site_header = "Telusur Administrator"
 admin.site.site_title = "Telusur Admin Portal"

@@ -65,3 +65,7 @@ target/
 
 project/telusur/settings.py
 project/static/attachments/
+
+
+.idea
+venv

@@ -40,5 +40,6 @@ class Post(models.Model):
     attachment = models.ForeignKey(Attachment, null=True, on_delete=models.CASCADE)
     publish = models.BooleanField(default=False)
     draft = models.BooleanField(default=False)
+    views = models.IntegerField(null=True, default=0)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     pub_date = models.DateTimeField('date published')
