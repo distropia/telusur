@@ -6,468 +6,471 @@
     {% include 'pages/home/news-heading.html' %}
     {% include 'pages/home/news-ticker.html' %}
 
-    <section class="block-wrapper">
-        <div class="container">
-            <div class="row">
-                <!--Sidebar Left-->
-                <div class="col-md-2 col-sm-0 sidebar-sticky">
-                    {% include 'pages/home/sidebar-left.html' %}
-                </div>
-                <!--End Sidebar Left-->
-
-                <!--Content Center-->
-                <div class="col-md-7 col-sm-8 content-blocker">
-                    {% include 'pages/home/news-today-featured.html' %}
-                </div>
-                <!--End Content Center-->
-
-                <!--Sidebar Right-->
-                <div class="col-md-3 col-sm-4 sidebar-sticky">
-                    {% include 'pages/home/sidebar-right.html' %}
-                </div>
-                <!--End Sidebar Right-->
+<!-- block-wrapper-section
+    ================================================== -->
+<section class="block-wrapper">
+    <div class="container">
+        <div class="row">
+            <!--Sidebar Left-->
+            <div class="col-md-2 col-sm-0 sidebar-sticky">
+                {% include 'pages/home/sidebar-left.html' %}
             </div>
-        </div>
-    </section>
+            <!--End Sidebar Left-->
 
-    <!-- list line posts section -->
-    <div class="list-line-posts">
-        <div class="container">
-
-            <div class="owl-wrapper">
-                <div class="owl-carousel" data-num="4">
-
-                    <div class="item list-post">
-                        <div class="post-content">
-                            <a href="politics-category.html">Opinion</a>
-                            <h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item list-post">
-                        <div class="post-content">
-                            <a href="politics-category.html">World</a>
-                            <h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item list-post">
-                        <div class="post-content">
-                            <a href="politics-category.html">Video</a>
-                            <h2><a href="single-post.html">Aliquam porttitor mauris sit amet orci. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item list-post">
-                        <div class="post-content">
-                            <a href="politics-category.html">Elections</a>
-                            <h2><a href="single-post.html">Morbi in sem quis dui placerat ornare. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item list-post">
-                        <div class="post-content">
-                            <a href="politics-category.html">Nations</a>
-                            <h2><a href="single-post.html">Morbi in sem quis dui placerat ornare. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
+            <!--Content Center-->
+            <div class="col-md-7 col-sm-8 content-blocker">
+                {% include 'pages/home/news-today-featured.html' %}
             </div>
+            <!--End Content Center-->
 
+            <!--Sidebar Right-->
+            <div class="col-md-3 col-sm-4 sidebar-sticky">
+                {% include 'pages/home/sidebar-right.html' %}
+            </div>
+            <!--End Sidebar Right-->
         </div>
     </div>
-    <!-- End list line posts section -->
+</section>
+<!-- End block-wrapper-section -->
 
-    <!-- feature-video-section
-        ================================================== -->
-    <section class="feature-video">
-        <div class="container">
-            <div class="title-section white">
-                <h1><span>Politics Original Videos</span></h1>
-            </div>
+<!-- list line posts section -->
+<div class="list-line-posts">
+    <div class="container">
 
-            <div class="features-video-box owl-wrapper">
-                <div class="owl-carousel" data-num="4">
+        <div class="owl-wrapper">
+            <div class="owl-carousel" data-num="4">
 
-                    <div class="item news-post video-post">
-                        <img alt="" src="{% static 'upload/news-posts/video1.jpg' %}">
-                        <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
-                                class="fa fa-play-circle-o"></i></a>
-                        <div class="hover-box">
-                            <h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec
-                                odio. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
+                <div class="item list-post">
+                    <div class="post-content">
+                        <a href="politics-category.html">Opinion</a>
+                        <h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
                     </div>
-
-                    <div class="item news-post video-post">
-                        <img alt="" src="{% static 'upload/news-posts/video2.jpg' %}">
-                        <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
-                                class="fa fa-play-circle-o"></i></a>
-                        <div class="hover-box">
-                            <h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item news-post video-post">
-                        <img alt="" src="{% static 'upload/news-posts/video3.jpg' %}">
-                        <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
-                                class="fa fa-play-circle-o"></i></a>
-                        <div class="hover-box">
-                            <h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item news-post video-post">
-                        <img alt="" src="{% static 'upload/news-posts/video4.jpg' %}">
-                        <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
-                                class="fa fa-play-circle-o"></i></a>
-                        <div class="hover-box">
-                            <h2><a href="single-post.html">Suspendisse urna nibh, viverra non, semper suscipit, posuere
-                                a, pede.</a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item news-post video-post">
-                        <img alt="" src="{% static 'upload/news-posts/video1.jpg' %}">
-                        <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
-                                class="fa fa-play-circle-o"></i></a>
-                        <div class="hover-box">
-                            <h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec
-                                odio. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item news-post video-post">
-                        <img alt="" src="{% static 'upload/news-posts/video2.jpg' %}">
-                        <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
-                                class="fa fa-play-circle-o"></i></a>
-                        <div class="hover-box">
-                            <h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="item news-post video-post">
-                        <img alt="" src="{% static 'upload/news-posts/video3.jpg' %}">
-                        <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
-                                class="fa fa-play-circle-o"></i></a>
-                        <div class="hover-box">
-                            <h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </div>
-
                 </div>
+
+                <div class="item list-post">
+                    <div class="post-content">
+                        <a href="politics-category.html">World</a>
+                        <h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item list-post">
+                    <div class="post-content">
+                        <a href="politics-category.html">Video</a>
+                        <h2><a href="single-post.html">Aliquam porttitor mauris sit amet orci. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item list-post">
+                    <div class="post-content">
+                        <a href="politics-category.html">Elections</a>
+                        <h2><a href="single-post.html">Morbi in sem quis dui placerat ornare. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item list-post">
+                    <div class="post-content">
+                        <a href="politics-category.html">Nations</a>
+                        <h2><a href="single-post.html">Morbi in sem quis dui placerat ornare. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
-    <!-- End feature-video-section -->
 
-    <!-- block-wrapper-section
-        ================================================== -->
-    <section class="block-wrapper">
-        <div class="container">
-            <div class="row">
+    </div>
+</div>
+<!-- End list line posts section -->
 
-                <div class="col-md-2 col-sm-0 sidebar-sticky">
+<!-- feature-video-section
+    ================================================== -->
+<section class="feature-video">
+    <div class="container">
+        <div class="title-section white">
+            <h1><span>Politics Original Videos</span></h1>
+        </div>
 
-                    <!-- sidebar -->
-                    <div class="sidebar small-sidebar theiaStickySidebar">
+        <div class="features-video-box owl-wrapper">
+            <div class="owl-carousel" data-num="4">
 
-                        <div class="widget voises-widget">
-                            <div class="title-section">
-                                <h1><span>Voises</span></h1>
-                            </div>
-                            <ul class="voises-posts">
+                <div class="item news-post video-post">
+                    <img alt="" src="{% static 'upload/news-posts/video1.jpg' %}">
+                    <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
+                            class="fa fa-play-circle-o"></i></a>
+                    <div class="hover-box">
+                        <h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec
+                            odio. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
 
-                                <li>
-                                    <img src="{% static 'upload/users/av1.jpg' %}" alt="">
-                                    <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in,
-                                        pharetra a, ultricies in, diam. </p>
-                                    <span>By Howard Kurtz</span>
-                                </li>
+                <div class="item news-post video-post">
+                    <img alt="" src="{% static 'upload/news-posts/video2.jpg' %}">
+                    <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
+                            class="fa fa-play-circle-o"></i></a>
+                    <div class="hover-box">
+                        <h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
 
-                                <li>
-                                    <img src="{% static 'upload/users/av2.jpg' %}" alt="">
-                                    <p>Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
-                                        Cras consequat.</p>
-                                    <span>By Dana Blanton</span>
-                                </li>
+                <div class="item news-post video-post">
+                    <img alt="" src="{% static 'upload/news-posts/video3.jpg' %}">
+                    <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
+                            class="fa fa-play-circle-o"></i></a>
+                    <div class="hover-box">
+                        <h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
 
-                                <li>
-                                    <img src="{% static 'upload/users/av3.jpg' %}" alt="">
-                                    <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, </p>
-                                    <span>By John Doe</span>
-                                </li>
+                <div class="item news-post video-post">
+                    <img alt="" src="{% static 'upload/news-posts/video4.jpg' %}">
+                    <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
+                            class="fa fa-play-circle-o"></i></a>
+                    <div class="hover-box">
+                        <h2><a href="single-post.html">Suspendisse urna nibh, viverra non, semper suscipit, posuere
+                            a, pede.</a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
 
-                                <li>
-                                    <img src="{% static 'upload/users/av4.jpg' %}" alt="">
-                                    <p>Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
-                                        Cras consequat.</p>
-                                    <span>By Howard</span>
-                                </li>
+                <div class="item news-post video-post">
+                    <img alt="" src="{% static 'upload/news-posts/video1.jpg' %}">
+                    <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
+                            class="fa fa-play-circle-o"></i></a>
+                    <div class="hover-box">
+                        <h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec
+                            odio. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
 
-                            </ul>
+                <div class="item news-post video-post">
+                    <img alt="" src="{% static 'upload/news-posts/video2.jpg' %}">
+                    <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
+                            class="fa fa-play-circle-o"></i></a>
+                    <div class="hover-box">
+                        <h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item news-post video-post">
+                    <img alt="" src="{% static 'upload/news-posts/video3.jpg' %}">
+                    <a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i
+                            class="fa fa-play-circle-o"></i></a>
+                    <div class="hover-box">
+                        <h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End feature-video-section -->
+
+<!-- block-wrapper-section
+    ================================================== -->
+<section class="block-wrapper">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-2 col-sm-0 sidebar-sticky">
+
+                <!-- sidebar -->
+                <div class="sidebar small-sidebar theiaStickySidebar">
+
+                    <div class="widget voises-widget">
+                        <div class="title-section">
+                            <h1><span>Voises</span></h1>
                         </div>
+                        <ul class="voises-posts">
 
+                            <li>
+                                <img src="{% static 'upload/users/av1.jpg' %}" alt="">
+                                <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in,
+                                    pharetra a, ultricies in, diam. </p>
+                                <span>By Howard Kurtz</span>
+                            </li>
+
+                            <li>
+                                <img src="{% static 'upload/users/av2.jpg' %}" alt="">
+                                <p>Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+                                    Cras consequat.</p>
+                                <span>By Dana Blanton</span>
+                            </li>
+
+                            <li>
+                                <img src="{% static 'upload/users/av3.jpg' %}" alt="">
+                                <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, </p>
+                                <span>By John Doe</span>
+                            </li>
+
+                            <li>
+                                <img src="{% static 'upload/users/av4.jpg' %}" alt="">
+                                <p>Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.
+                                    Cras consequat.</p>
+                                <span>By Howard</span>
+                            </li>
+
+                        </ul>
                     </div>
 
                 </div>
 
-                <div class="col-md-7 col-sm-8 content-blocker">
+            </div>
 
-                    <!-- block content -->
-                    <div class="block-content">
+            <div class="col-md-7 col-sm-8 content-blocker">
 
-                        <!-- article box -->
-                        <div class="article-box">
-                            <div class="title-section">
-                                <h1><span>Latest Articles</span></h1>
-                            </div>
+                <!-- block content -->
+                <div class="block-content">
 
-                            <div class="news-post article-post">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="post-gallery">
-                                            <img alt="" src="{% static 'upload/news-posts/art1.jpg' %}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="post-content">
-                                            <a href="politcs-category.html">Politics</a>
-                                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra
-                                                a, ultricies in, diam. Sed arcu. Cras consequat.</a></h2>
-                                            <ul class="post-tags">
-                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                                <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                                <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                                                <li><i class="fa fa-eye"></i>872</li>
-                                            </ul>
-                                            <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
-                                                turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
-                                                pede.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="news-post article-post">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="post-gallery">
-                                            <img alt="" src="{% static 'upload/news-posts/art2.jpg' %}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="post-content">
-                                            <a href="politcs-category.html">Nation</a>
-                                            <h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
-                                            <ul class="post-tags">
-                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                                <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                                <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                                                <li><i class="fa fa-eye"></i>872</li>
-                                            </ul>
-                                            <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
-                                                turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
-                                                pede.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="news-post article-post">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="post-gallery">
-                                            <img alt="" src="{% static 'upload/news-posts/art3.jpg' %}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="post-content">
-                                            <a href="politcs-category.html">Congress</a>
-                                            <h2><a href="single-post.html">Praesent dapibus, neque id cursus faucibus,
-                                                tortor neque egestas augue, eu vulputate magna eros eu erat. </a></h2>
-                                            <ul class="post-tags">
-                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                                <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                                <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                                                <li><i class="fa fa-eye"></i>872</li>
-                                            </ul>
-                                            <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
-                                                turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
-                                                pede.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="news-post article-post">
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <div class="post-gallery">
-                                            <img alt="" src="{% static 'upload/news-posts/art4.jpg' %}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="post-content">
-                                            <a href="politcs-category.html">World</a>
-                                            <h2><a href="single-post.html">Aliquam erat volutpat. </a></h2>
-                                            <ul class="post-tags">
-                                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                                <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
-                                                <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                                                <li><i class="fa fa-eye"></i>872</li>
-                                            </ul>
-                                            <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
-                                                turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
-                                                pede.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                    <!-- article box -->
+                    <div class="article-box">
+                        <div class="title-section">
+                            <h1><span>Latest Articles</span></h1>
                         </div>
-                        <!-- End article box -->
 
-                        <!-- Pagination box -->
-                        <div class="pagination-box">
-                            <ul class="pagination-list">
-                                <li><a class="active" href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><span>...</span></li>
-                                <li><a href="#">9</a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
-                            <p>Page 1 of 9</p>
-                        </div>
-                        <!-- End Pagination box -->
-
-                    </div>
-                    <!-- End block content -->
-
-                </div>
-
-                <div class="col-md-3 col-sm-4 sidebar-sticky">
-
-                    <!-- sidebar -->
-                    <div class="sidebar large-sidebar theiaStickySidebar">
-
-                        <div class="widget features-slide-widget">
-                            <div class="title-section">
-                                <h1><span>Most Discussed</span></h1>
-                            </div>
-                            <ul class="list-posts">
-
-                                <li>
+                        <div class="news-post article-post">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="post-gallery">
+                                        <img alt="" src="{% static 'upload/news-posts/art1.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
                                     <div class="post-content">
+                                        <a href="politcs-category.html">Politics</a>
+                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra
+                                            a, ultricies in, diam. Sed arcu. Cras consequat.</a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
+                                        </ul>
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+                                            turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
+                                            pede.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-post article-post">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="post-gallery">
+                                        <img alt="" src="{% static 'upload/news-posts/art2.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="post-content">
+                                        <a href="politcs-category.html">Nation</a>
                                         <h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
                                         <ul class="post-tags">
                                             <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
                                         </ul>
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+                                            turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
+                                            pede.</p>
                                     </div>
-                                </li>
-
-                                <li>
-                                    <div class="post-content">
-                                        <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a,
-                                            ultricies in, diam. </a></h2>
-                                        <ul class="post-tags">
-                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="post-content">
-                                        <h2><a href="single-post.html">Morbi interdum mollis sapien. </a></h2>
-                                        <ul class="post-tags">
-                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="post-content">
-                                        <h2><a href="single-post.html">Etiam pellentesque mauris ut lectus. Sed arcu.
-                                            Cras consequat.</a></h2>
-                                        <ul class="post-tags">
-                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="widget subscribe-widget">
-                            <form class="subscribe-form">
-                                <h1>Subscribe to RSS Feeds</h1>
-                                <input type="text" name="sumbscribe" id="subscribe" placeholder="Email"/>
-                                <button id="submit-subscribe">
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </button>
-                                <p>Get all latest content delivered to your email a few times a month.</p>
-                            </form>
+                        <div class="news-post article-post">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="post-gallery">
+                                        <img alt="" src="{% static 'upload/news-posts/art3.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="post-content">
+                                        <a href="politcs-category.html">Congress</a>
+                                        <h2><a href="single-post.html">Praesent dapibus, neque id cursus faucibus,
+                                            tortor neque egestas augue, eu vulputate magna eros eu erat. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
+                                        </ul>
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+                                            turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
+                                            pede.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="advertisement">
-                            <div class="desktop-advert">
-                                <span>Advertisement</span>
-                                <img src="{% static 'upload/addsense/250x250.jpg' %}" alt="">
-                            </div>
-                            <div class="tablet-advert">
-                                <span>Advertisement</span>
-                                <img src="{% static 'upload/addsense/200x200.jpg' %}" alt="">
-                            </div>
-                            <div class="mobile-advert">
-                                <span>Advertisement</span>
-                                <img src="{% static 'upload/addsense/300x250.jpg' %}" alt="">
+                        <div class="news-post article-post">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="post-gallery">
+                                        <img alt="" src="{% static 'upload/news-posts/art4.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="post-content">
+                                        <a href="politcs-category.html">World</a>
+                                        <h2><a href="single-post.html">Aliquam erat volutpat. </a></h2>
+                                        <ul class="post-tags">
+                                            <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                            <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
+                                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+                                            <li><i class="fa fa-eye"></i>872</li>
+                                        </ul>
+                                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut
+                                            turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a,
+                                            pede.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                     </div>
-                    <!-- End sidebar -->
+                    <!-- End article box -->
+
+                    <!-- Pagination box -->
+                    <div class="pagination-box">
+                        <ul class="pagination-list">
+                            <li><a class="active" href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><span>...</span></li>
+                            <li><a href="#">9</a></li>
+                            <li><a href="#">Next</a></li>
+                        </ul>
+                        <p>Page 1 of 9</p>
+                    </div>
+                    <!-- End Pagination box -->
 
                 </div>
+                <!-- End block content -->
+
+            </div>
+
+            <div class="col-md-3 col-sm-4 sidebar-sticky">
+
+                <!-- sidebar -->
+                <div class="sidebar large-sidebar theiaStickySidebar">
+
+                    <div class="widget features-slide-widget">
+                        <div class="title-section">
+                            <h1><span>Most Discussed</span></h1>
+                        </div>
+                        <ul class="list-posts">
+
+                            <li>
+                                <div class="post-content">
+                                    <h2><a href="single-post.html">Sed arcu. Cras consequat.</a></h2>
+                                    <ul class="post-tags">
+                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="post-content">
+                                    <h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a,
+                                        ultricies in, diam. </a></h2>
+                                    <ul class="post-tags">
+                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="post-content">
+                                    <h2><a href="single-post.html">Morbi interdum mollis sapien. </a></h2>
+                                    <ul class="post-tags">
+                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="post-content">
+                                    <h2><a href="single-post.html">Etiam pellentesque mauris ut lectus. Sed arcu.
+                                        Cras consequat.</a></h2>
+                                    <ul class="post-tags">
+                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="widget subscribe-widget">
+                        <form class="subscribe-form">
+                            <h1>Subscribe to RSS Feeds</h1>
+                            <input type="text" name="sumbscribe" id="subscribe" placeholder="Email"/>
+                            <button id="submit-subscribe">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                            <p>Get all latest content delivered to your email a few times a month.</p>
+                        </form>
+                    </div>
+
+                    <div class="advertisement">
+                        <div class="desktop-advert">
+                            <span>Advertisement</span>
+                            <img src="{% static 'upload/addsense/250x250.jpg' %}" alt="">
+                        </div>
+                        <div class="tablet-advert">
+                            <span>Advertisement</span>
+                            <img src="{% static 'upload/addsense/200x200.jpg' %}" alt="">
+                        </div>
+                        <div class="mobile-advert">
+                            <span>Advertisement</span>
+                            <img src="{% static 'upload/addsense/300x250.jpg' %}" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End sidebar -->
 
             </div>
 
         </div>
-    </section>
-    <!-- End block-wrapper-section -->
+
+    </div>
+</section>
+<!-- End block-wrapper-section -->
 {% endblock %}

@@ -11,10 +11,9 @@
 
         <ul class="category-filter-posts">
             <li><a class="active" href="#">All</a></li>
-            <li><a href="#">Election</a></li>
-            <li><a href="#">Nations</a></li>
-            <li><a href="#">World U</a></li>
-            <li><a href="#">Politics</a></li>
+            {% for category in categories %}
+                <li><a href="#">{{ category.name }}</a></li>
+            {% endfor %}
         </ul>
 
         <div class="image-post-slider">
