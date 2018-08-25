@@ -27,7 +27,7 @@ class Command(BaseCommand):
             self.authors = find_authors(tree)
             self.categories = find_categories(tree)
             self.tags = find_tags(tree)
-            self.attachments = find_attachments(tree, False, self.attachment_path)
+            self.attachments = find_attachments(tree, True, self.attachment_path)
             self.posts = find_posts(tree)
             self.polls = find_polls(tree)
         except:
@@ -94,11 +94,13 @@ class Command(BaseCommand):
         self.stdout.write(self.style.MIGRATE_LABEL("Importing Attachments"))
         progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(self.attachments)).start()
         for i, attachment in enumerate(self.attachments):
-            attachment.adjust_path(self.attachment_path)
-            objAtt = Attachment(
-                id=attachment.id,
-                title=attachment.title,
-                path=attachment.url,
+            # attachment.adjust_path(self.attachment_path) 
+            extension = attachment.url.split(".")[-1] 
+            objAtt = Attachment( 
+                id=attachment.id, 
+                title=attachment.title, 
+                path=attachment.url, 
+                path=self.attachment_path + attachment.title + "." + extension,
                 attch_type = "featured_image"
                 )
             objAtt.save()
