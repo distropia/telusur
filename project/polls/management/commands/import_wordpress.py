@@ -99,7 +99,6 @@ class Command(BaseCommand):
             objAtt = Attachment( 
                 id=attachment.id, 
                 title=attachment.title, 
-                path=attachment.url, 
                 path=self.attachment_path + attachment.title + "." + extension,
                 attch_type = "featured_image"
                 )
