@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import urls
 from . import views
+from django.conf import settings
+
 
 admin.site.site_header = "Telusur Administrator"
 admin.site.site_title = "Telusur Admin Portal"
@@ -31,3 +33,9 @@ urlpatterns = [
     urls.url(r'^tags_input/',
              urls.include('tags_input.urls', namespace='tags_input')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        urls.url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns

@@ -27,7 +27,7 @@ class Command(BaseCommand):
             self.authors = find_authors(tree)
             self.categories = find_categories(tree)
             self.tags = find_tags(tree)
-            self.attachments = find_attachments(tree, False, self.attachment_path)
+            self.attachments = find_attachments(tree, True, self.attachment_path)
             self.posts = find_posts(tree)
             self.polls = find_polls(tree)
         except:

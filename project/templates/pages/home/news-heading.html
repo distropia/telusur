@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!-- heading-news-section2 ================================================== -->
 <section class="heading-news2">
 
@@ -10,7 +11,7 @@
                 <img src="{% static 'upload/news-posts/h1.jpg' %}" alt="">
                 <div class="hover-box">
                     <div class="inner-hover">
-                                    <a class="category-post" href="politics-category.html">business</a>
+                        <a class="category-post" href="politics-category.html">business</a>
                         <h2><a href="single-post.html">Lorem ipsum dolor sit amet, consectetuer</a></h2>
                         <ul class="post-tags">
                             <li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
@@ -30,7 +31,8 @@
                             <div class="hover-box">
                                 <div class="inner-hover">
                                     <a class="category-post" href="politics-category.html">Elections</a>
-                                    <h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a lectus. </a></h2>
+                                    <h2><a href="single-post.html">Phasellus ultrices nulla quis nibh. Quisque a
+                                        lectus. </a></h2>
                                     <ul class="post-tags">
                                         <li><i class="fa fa-clock-o"></i>27 may 2013</li>
                                         <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
@@ -47,7 +49,8 @@
                             <div class="hover-box">
                                 <div class="inner-hover">
                                     <a class="category-post" href="politics-category.html">Economy</a>
-                                    <h2><a href="single-post.html">Franca do të bashkëpunojë me Kosovën në ekonomi. </a></h2>
+                                    <h2><a href="single-post.html">Franca do të bashkëpunojë me Kosovën në ekonomi. </a>
+                                    </h2>
                                     <ul class="post-tags">
                                         <li><i class="fa fa-clock-o"></i>27 may 2013</li>
                                         <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
@@ -64,7 +67,8 @@
                             <div class="hover-box">
                                 <div class="inner-hover">
                                     <a class="category-post" href="politics-category.html">Nation</a>
-                                    <h2><a href="single-post.html">Porti i Durresit më i vizituari në ballkan kete vit. </a></h2>
+                                    <h2><a href="single-post.html">Porti i Durresit më i vizituari në ballkan kete
+                                        vit. </a></h2>
                                     <ul class="post-tags">
                                         <li><i class="fa fa-clock-o"></i>27 may 2013</li>
                                         <li><i class="fa fa-user"></i>by <a href="#">John Doe</a></li>
@@ -78,14 +82,16 @@
                 </ul>
             </div>
 
+            {% for post in most_viewed_posts|slice:":3" %}
+
             <div class="news-post image-post">
                 <img src="{% static 'upload/news-posts/h3.jpg' %}" alt="">
                 <div class="hover-box">
                     <div class="inner-hover">
-                        <a class="category-post" href="politics-category.html">Opinion</a>
-                        <h2><a href="single-post.html">Nullam malesuada erat ut turpis.</a></h2>
+                        <a class="category-post" href="politics-category.html">{{ post.categories.0.name }}</a>
+                        <h2><a href="single-post.html">{{ post.title }}</a></h2>
                         <ul class="post-tags">
-                            <li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
+                            <li><i class="fa fa-clock-o"></i><span>{{ post.pub_date|naturaltime }}</span></li>
                             <li><a href="#"><i class="fa fa-comments-o"></i><span>20</span></a></li>
                         </ul>
                         <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
@@ -93,35 +99,8 @@
                 </div>
             </div>
 
-            <div class="news-post image-post">
-                <img src="{% static 'upload/news-posts/h5.jpg' %}" alt="">
-                <div class="hover-box">
-                    <div class="inner-hover">
-                        <a class="category-post" href="politics-category.html">Video</a>
-                        <h2><a href="single-post.html">Donec odio. </a></h2>
-                        <ul class="post-tags">
-                            <li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                        </ul>
-                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
 
-            <div class="news-post image-post">
-                <img src="{% static 'upload/news-posts/h6.jpg' %}" alt="">
-                <div class="hover-box">
-                    <div class="inner-hover">
-                        <a class="category-post" href="politics-category.html">Nation</a>
-                        <h2><a href="single-post.html">Quisque volutpat mattis </a></h2>
-                        <ul class="post-tags">
-                            <li><i class="fa fa-clock-o"></i><span>27 may 2013</span></li>
-                            <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
-                        </ul>
-                        <p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.</p>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
