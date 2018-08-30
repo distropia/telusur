@@ -94,11 +94,11 @@ class Command(BaseCommand):
         self.stdout.write(self.style.MIGRATE_LABEL("Importing Attachments"))
         progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(self.attachments)).start()
         for i, attachment in enumerate(self.attachments):
-            # attachment.adjust_path(self.attachment_path)
-            extension = attachment.url.split(".")[-1]
-            objAtt = Attachment(
-                id=attachment.id,
-                title=attachment.title,
+            # attachment.adjust_path(self.attachment_path) 
+            extension = attachment.url.split(".")[-1] 
+            objAtt = Attachment( 
+                id=attachment.id, 
+                title=attachment.title, 
                 path=self.attachment_path + attachment.title + "." + extension,
                 attch_type = "featured_image"
                 )
