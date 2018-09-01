@@ -99,7 +99,7 @@ class Command(BaseCommand):
             objAtt = Attachment( 
                 id=attachment.id, 
                 title=attachment.title, 
-                path=self.attachment_path + attachment.title + "." + extension,
+                path=self.attachment_path + attachment.title.replace(" ", "-") + "." + extension,
                 attch_type = "featured_image"
                 )
             objAtt.save()
