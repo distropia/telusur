@@ -9,7 +9,7 @@
 
             <div class="news-post image-post default-size">
 
-                <img src="{% static 'upload/news-posts/h1.jpg' %}" alt="">
+                <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
 
                 <div class="hover-box">
                     <div class="inner-hover">
@@ -31,7 +31,7 @@
                     <li>
                         <div class="news-post image-post">
 
-                            <img src="{% static 'upload/news-posts/h7.jpg' %}" alt="">
+                            <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
 {#                            <img src="{{ post.attachment.path  }}" alt="">#}
 
                             <div class="hover-box">
@@ -54,7 +54,7 @@
 
             {% for post in most_viewed_posts|slice:"6:9" %}
             <div class="news-post image-post">
-                <img src="{% static 'upload/news-posts/h1.jpg' %}" alt="">
+                <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
                 <div class="hover-box">
                     <div class="inner-hover">
                         <a class="category-post" href="politics-category.html">{{ post.categories.0.name }}</a>

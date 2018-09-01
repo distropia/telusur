@@ -10,12 +10,12 @@
             <h1><span>Latest Articles</span></h1>
         </div>
 
-        {% for post in posts_by_categories %}
+        {% for post in posts %}
         <div class="news-post article-post">
             <div class="row">
                 <div class="col-sm-5">
                     <div class="post-gallery">
-                        <img alt="" src="{{ post.attachment.path }}">
+                        <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
                     </div>
                 </div>
                 <div class="col-sm-7">

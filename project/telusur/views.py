@@ -30,7 +30,8 @@ def index(request):
         'most_viewed_posts': most_viewed_posts,
         'categories': categories,
         'posts_by_categories': posts_by_categories,
-        'category_id': category_id
+        'category_id': category_id,
+        'posts': latest_posts
     }
 
     print('category_id', category_id)
@@ -54,6 +55,22 @@ def post_detail(request, slug):
     print('TAGS:', post.tags)
     return render(request, 'pages/post-detail/post-detail-index.html', context)
 
+
+def post_by_category(request, category_id):
+    latest_posts = Post.objects.all().order_by('-pub_date')[:10]
+    most_viewed_posts = Post.objects.all().order_by('-views')[:10]
+    categories = Category.objects.all().exclude(id=1)[:5]
+    posts = Post.objects.\
+                filter(categories__in=[category_id]).\
+                order_by('-pub_date')[:8]
+    context = {
+        'latest_posts': latest_posts,
+        'most_viewed_posts': most_viewed_posts,
+        'categories': categories,
+        'posts': posts
+    }
+
+    return render(request, 'pages/post-category/post-category-index.html', context)
 
 
 def test(request):
