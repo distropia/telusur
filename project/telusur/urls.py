@@ -26,6 +26,7 @@ admin.site.index_title = "Welcome to Telusur Admin Portal"
 
 urlpatterns = [
     path('', views.index),
+    path('post/<slug:slug>', views.post_detail, name='post_detail'),
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('posts/', include('posts.urls')),

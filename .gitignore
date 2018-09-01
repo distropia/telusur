@@ -65,7 +65,8 @@ target/
 
 project/telusur/settings.py
 project/static/attachments/
-
+wordpress_theme
+telusur
 
 .idea
 venv

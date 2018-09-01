@@ -1,6 +1,7 @@
 {% load static %}
+{% load humanize %}
 <!-- block content -->
-<div class="block-content">
+<div class="block-content" id="posts-by-categories">
 
     <!-- grid box -->
     <div class="grid-box">
@@ -10,139 +11,76 @@
         </div>
 
         <ul class="category-filter-posts">
-            <li><a class="active" href="#">All</a></li>
+            <li>
+                <a {% if category_id == 0 %} class="active" {% endif %} href="?#posts-by-categories">All</a>
+            </li>
             {% for category in categories %}
-                <li><a href="#">{{ category.name }}</a></li>
+                <li>
+                    <a {% if category_id == 19 %} class="active" {% endif %} href="?cat={{ category.id }}#posts-by-categories">{{ category.name }}</a>
+                </li>
             {% endfor %}
         </ul>
 
         <div class="image-post-slider">
             <ul class="bxslider">
+                {% for post in posts_by_categories|slice:"0:2" %}
                 <li>
                     <div class="news-post image-post2">
                         <div class="post-gallery">
-                            <img src="{% static 'upload/news-posts/slide1a.jpg' %}" alt="">
+                            <img src="{{ post.attachment.path }}" alt="">
                             <div class="hover-box">
                                 <div class="inner-hover">
                                     <a class="category-post"
-                                       href="politics-category.html">Nation</a>
-                                    <h2><a href="single-post.html">Pellentesque odio nisi, euismod
-                                        in, pharetra a, ultricies in, diam. Sed arcu. Cras
-                                        consequat.</a></h2>
+                                       href="politics-category.html">{{ post.categories.0.name }}</a>
+                                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
                                     <ul class="post-tags">
-                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                        <li><i class="fa fa-user"></i>by <a href="#">John Doe</a>
+                                        <li><i class="fa fa-clock-o"></i>{{ post.pub_date|naturaltime }}</li>
+                                        <li><i class="fa fa-user"></i>by <a href="#">{{ post.author.first_name }}</a>
                                         </li>
                                         <li><a href="#"><i
                                                 class="fa fa-comments-o"></i><span>23</span></a>
                                         </li>
-                                        <li><i class="fa fa-eye"></i>872</li>
+                                        <li><i class="fa fa-eye"></i>{{ post.views }}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="news-post image-post2">
-                        <div class="post-gallery">
-                            <img src="{% static 'upload/news-posts/slide2a.jpg' %}" alt="">
-                            <div class="hover-box">
-                                <div class="inner-hover">
-                                    <a class="category-post"
-                                       href="politics-category.html">Election</a>
-                                    <h2><a href="single-post.html">Pellentesque odio nisi, euismod
-                                        in, pharetra a, ultricies in, diam. Sed arcu. Cras
-                                        consequat.</a></h2>
-                                    <ul class="post-tags">
-                                        <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                        <li><i class="fa fa-user"></i>by <a href="#">John Doe</a>
-                                        </li>
-                                        <li><a href="#"><i
-                                                class="fa fa-comments-o"></i><span>23</span></a>
-                                        </li>
-                                        <li><i class="fa fa-eye"></i>872</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                {% endfor %}
             </ul>
         </div>
 
         <div class="row">
             <div class="col-md-6">
                 <ul class="list-posts">
+                    {% for post in posts_by_categories|slice:"2:5" %}
                     <li>
-                        <img src="{% static 'upload/news-posts/list1.jpg' %}" alt="">
+                        <img src="{{ post.attachment.path }}" alt="">
                         <div class="post-content">
-                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in,
-                                pharetra a, ultricies in, diam. </a></h2>
+                            <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
                             <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                <li><i class="fa fa-clock-o"></i>{{ post.pub_date|naturaltime }}</li>
                             </ul>
                         </div>
                     </li>
-
-                    <li>
-                        <img src="{% static 'upload/news-posts/list2.jpg' %}" alt="">
-                        <div class="post-content">
-                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in,
-                                pharetra a, ultricies in, diam. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li>
-                        <img src="{% static 'upload/news-posts/list3.jpg' %}" alt="">
-                        <div class="post-content">
-                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in,
-                                pharetra a, ultricies in, diam. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
 
             <div class="col-md-6">
                 <ul class="list-posts">
+                    {% for post in posts_by_categories|slice:"5:8" %}
                     <li>
-                        <img src="{% static 'upload/news-posts/list4.jpg' %}" alt="">
+                        <img src="{{ post.attachment.path }}" alt="">
                         <div class="post-content">
-                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in,
-                                pharetra a, ultricies in, diam. </a></h2>
+                            <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
                             <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
+                                <li><i class="fa fa-clock-o"></i>{{ post.pub_date|naturaltime }}</li>
                             </ul>
                         </div>
                     </li>
-
-                    <li>
-                        <img src="{% static 'upload/news-posts/list5.jpg' %}" alt="">
-                        <div class="post-content">
-                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in,
-                                pharetra a, ultricies in, diam. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li>
-                        <img src="{% static 'upload/news-posts/list6.jpg' %}" alt="">
-                        <div class="post-content">
-                            <h2><a href="single-post.html">Pellentesque odio nisi, euismod in,
-                                pharetra a, ultricies in, diam. </a></h2>
-                            <ul class="post-tags">
-                                <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                            </ul>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
 
@@ -154,199 +92,6 @@
 
     </div>
     <!-- End grid box -->
-
-    <!-- google addsense -->
-    <div class="advertisement">
-        <div class="desktop-advert">
-            <span>Advertisement</span>
-            <img src="{% static 'upload/addsense/600x80.jpg' %}" alt="">
-        </div>
-        <div class="tablet-advert">
-            <span>Advertisement</span>
-            <img src="{% static 'upload/addsense/468x60-white.jpg' %}" alt="">
-        </div>
-        <div class="mobile-advert">
-            <span>Advertisement</span>
-            <img src="{% static 'upload/addsense/300x250.jpg' %}" alt="">
-        </div>
-    </div>
-    <!-- End google addsense -->
-
-    <!-- carousel box -->
-    <div class="carousel-box owl-wrapper">
-
-        <div class="title-section">
-            <h1><span>Popular</span></h1>
-        </div>
-
-        <div class="owl-carousel" data-num="2">
-
-            <div class="item">
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im4.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Opionion</a>
-                                <h2><a href="single-post.html">Quisque volutpat mattis eros. Nullam
-                                    malesuada erat ut turpis. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im5.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">world</a>
-                                <h2><a href="single-post.html">Quisque volutpat mattis eros. Nullam
-                                    malesuada erat ut turpis. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im8.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Election</a>
-                                <h2><a href="single-post.html">Quisque volutpat mattis eros. Nullam
-                                    malesuada erat ut turpis. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im6.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Election</a>
-                                <h2><a href="single-post.html">Donec nec justo eget felis facilisis
-                                    fermentum. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im7.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Nation</a>
-                                <h2><a href="single-post.html">Aenean dignissim pellentesque
-                                    felis.</a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im9.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Opionion</a>
-                                <h2><a href="single-post.html">Aenean dignissim pellentesque
-                                    felis.</a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="item">
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im8.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Politics</a>
-                                <h2><a href="single-post.html">Quisque volutpat mattis eros. Nullam
-                                    malesuada erat ut turpis. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im9.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Opionion</a>
-                                <h2><a href="single-post.html">Quisque volutpat mattis eros. Nullam
-                                    malesuada erat ut turpis. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-post image-post2">
-                    <div class="post-gallery">
-                        <img src="{% static 'upload/news-posts/im5.jpg' %}" alt="">
-                        <div class="hover-box">
-                            <div class="inner-hover">
-                                <a class="category-post" href="politics-category.html">Nation</a>
-                                <h2><a href="single-post.html">Quisque volutpat mattis eros. Nullam
-                                    malesuada erat ut turpis. </a></h2>
-                                <ul class="post-tags">
-                                    <li><i class="fa fa-clock-o"></i>27 may 2013</li>
-                                    <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    <!-- End carousel box -->
 
 </div>
 <!-- End block content -->
