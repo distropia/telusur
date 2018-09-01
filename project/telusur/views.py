@@ -18,7 +18,8 @@ def index(request):
     category_id = request.GET.get('cat', '')
     if category_id is not None and category_id != '':
         posts_by_categories = Post.objects.\
-                                  filter(categories__in=[category_id]).\
+                                  filter(categories__in=[category_id]). \
+                                  exclude(attachment__isnull=True). \
                                   order_by('-pub_date')[:8]
         logger.debug(dump(posts_by_categories))
     else:
@@ -41,7 +42,9 @@ def index(request):
 
 def post_detail(request, slug):
     categories = Category.objects.all().exclude(id=1)[:5]
-    latest_posts = Post.objects.all().order_by('-pub_date')[:10]
+    latest_posts = Post.objects.\
+                       exclude(attachment__isnull=True).\
+                       order_by('-pub_date')[:10]
     most_viewed_posts = Post.objects.all().order_by('-views')[:10]
     post = Post.objects.get(slug=slug)
 
@@ -52,7 +55,6 @@ def post_detail(request, slug):
         'most_viewed_posts': most_viewed_posts,
     }
 
-    print('TAGS:', post.tags)
     return render(request, 'pages/post-detail/post-detail-index.html', context)
 
 
@@ -61,8 +63,10 @@ def post_by_category(request, category_id):
     most_viewed_posts = Post.objects.all().order_by('-views')[:10]
     categories = Category.objects.all().exclude(id=1)[:5]
     posts = Post.objects.\
-                filter(categories__in=[category_id]).\
+                filter(categories__in=[category_id]). \
+                exclude(attachment__isnull=True). \
                 order_by('-pub_date')[:8]
+
     context = {
         'latest_posts': latest_posts,
         'most_viewed_posts': most_viewed_posts,
