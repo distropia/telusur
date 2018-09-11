@@ -26,6 +26,9 @@ class Attachment(models.Model):
     path = models.TextField(null=True)
     attch_type = models.CharField(max_length=200, null=True)
 
+    def __str__(self):
+        return self.title
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -43,3 +46,6 @@ class Post(models.Model):
     views = models.IntegerField(null=True, default=0)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     pub_date = models.DateTimeField('date published')
+
+    def __str__(self):
+        return self.title

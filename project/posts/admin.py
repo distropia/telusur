@@ -14,12 +14,16 @@ class PostAdmin(tags_input_admin.TagsInputAdmin):
     tag_fields = ('tags', 'categories')
 
 
+class AttachmentAdmin(admin.ModelAdmin):
+	list_display = ('title', 'path', 'attch_type')
+	list_display_links = ('title', )
+
+
 UserAdmin.list_display = ('email', 'first_name', 'last_name', 'is_active', 'date_joined', 'is_staff')
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
-
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tag)
-admin.site.register(Attachment)
+admin.site.register(Attachment, AttachmentAdmin)
 admin.site.register(Category)
