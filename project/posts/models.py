@@ -24,6 +24,7 @@ class Category(models.Model):
 class Attachment(models.Model):
     title = models.CharField(max_length=200, null=True)
     path = models.TextField(null=True)
+    image = models.ImageField(null=True, upload_to='static/attachments', default='static/attachments/00.jpg')
     attch_type = models.CharField(max_length=200, null=True)
 
     def __str__(self):
@@ -39,7 +40,6 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, null=True, max_length=200)
     categories = models.ManyToManyField(Category)
     tags = models.ManyToManyField(Tag) 
-    image = models.ImageField(null=True)
     attachment = models.ForeignKey(Attachment, null=True, on_delete=models.CASCADE)
     publish = models.BooleanField(default=False)
     draft = models.BooleanField(default=False)
