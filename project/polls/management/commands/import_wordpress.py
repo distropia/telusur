@@ -111,6 +111,7 @@ class Command(BaseCommand):
         progress = ProgressBar(widgets=[Percentage(), Bar()], maxval=len(self.posts)).start()
         for i, post in enumerate(self.posts):
             # post.adjust_paths(attachments=self.attachments, prefix=self.attachment_path)
+            post.adjust_urls()
             post.fix_paragraphs()
             post.fix_more()
             attachment = None
