@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    {% include 'components/header/header-index.html' %}
+    {% include 'pages/home/news-heading.html' %}
+    {% include 'pages/home/news-ticker.html' %}
+
+<!-- block-wrapper-section
+	================================================== -->
+<section class="block-wrapper">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-2 col-sm-0 sidebar-sticky">
+                {% include 'pages/home/voises.html' %}
+			</div>
+
+			<div class="col-md-7 col-sm-8 content-blocker">
+
+				<!-- block content -->
+				<div class="block-content"> 
+
+					<!-- google addsense -->
+					<div class="advertisement">
+						<div class="desktop-advert">
+							<span>Advertisement</span>
+							<img src="{% static 'upload/addsense/600x80.jpg' %}" alt="">
+						</div>
+						<div class="tablet-advert">
+							<span>Advertisement</span>
+							<img src="{% static 'upload/addsense/468x60-white.jpg' %}" alt="">
+						</div>
+						<div class="mobile-advert">
+							<span>Advertisement</span>
+							<img src="{% static 'upload/addsense/300x250.jpg' %}" alt="">
+						</div>
+					</div>
+					<!-- End google addsense -->
+
+					{% include 'pages/home/news-carousel.html' %}
+
+				</div>
+				<!-- End block content -->
+
+			</div>
+
+			<div class="col-md-3 col-sm-4 sidebar-sticky">
+				{% include 'pages/home/sidebar-right.html' %}
+			</div>
+
+		</div>
+
+	</div>
+</section>
+<!-- End block-wrapper-section -->
+
+{% endblock %}
