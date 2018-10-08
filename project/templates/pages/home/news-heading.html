@@ -3,13 +3,13 @@
 
 <section class="heading-news2">
 
-    <div class="container">
+	<div class="container">
 
-        <div class="iso-call heading-news-box">
+		<div class="iso-call heading-news-box">
 
-            <div class="news-post image-post default-size">
+			<div class="news-post image-post default-size">
+                <img src="{{ most_viewed_posts.9.attachment.path }}" alt="">
 
-                <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
 
                 <div class="hover-box">
                     <div class="inner-hover">
@@ -22,17 +22,16 @@
                         <p>{{ most_viewed_posts.9.content|safe|slice:"0:100" }}</p>
                     </div>
                 </div>
-            </div>
+			</div>
 
-            <div class="image-slider snd-size">
+			<div class="image-slider snd-size">
                 <span class="top-stories">TOP STORIES</span>
                 <ul class="bxslider">
                     {% for post in most_viewed_posts|slice:"0:5" %}
                     <li>
                         <div class="news-post image-post">
 
-                            <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
-{#                            <img src="{{ post.attachment.path  }}" alt="">#}
+                            <img class="slider-img" src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
 
                             <div class="hover-box">
                                 <div class="inner-hover">
@@ -50,7 +49,8 @@
                     </li>
                     {% endfor %}
                 </ul>
-            </div>
+			</div>
+
 
             {% for post in most_viewed_posts|slice:"6:9" %}
             <div class="news-post image-post">
@@ -68,7 +68,8 @@
                 </div>
             </div>
             {% endfor %}
-        </div>
-    </div>
+
+		</div>
+	</div>
 
 </section>

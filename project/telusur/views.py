@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
-    latest_posts = Post.objects.all().order_by('-pub_date')[:10]
+    latest_posts = Post.objects.all().order_by('-pub_date')[:15]
     most_viewed_posts = Post.objects.all().order_by('-views')[:10]
     categories = Category.objects.all().exclude(id=1)[:5]
 

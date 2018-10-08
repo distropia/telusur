@@ -1,22 +1,22 @@
-{% load static %}
-
-<!-- navbar list container -->
-<div class="nav-list-container">
-    <div class="container">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
-                <li><a {% if category_id == 0 %} class='active' {% endif %} href="/">Home</a></li>
-                {% for category in categories %}
-                <li><a {% if category.id == category_id %} class='active' {% endif %} href="{% url 'post_category' category.id %}">{{ category.name }}</a></li>
-                {% endfor %}
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <input type="text" id="search" name="search" placeholder="Search here">
-                <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</div>
+{% load static %} 
+ 
+<!-- navbar list container --> 
+<div class="nav-list-container"> 
+    <div class="container"> 
+        <!-- Collect the nav links, forms, and other content for toggling --> 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
+            <ul class="nav navbar-nav navbar-left"> 
+                <li><a {% if category_id == 0 %} class='active' {% endif %} href="/">Home</a></li> 
+                {% for category in categories %} 
+                <li><a {% if category.id == category_id %} class='active' {% endif %} href="{% url 'post_category' category.id %}">{{ category.name }}</a></li> 
+                {% endfor %} 
+            </ul> 
+            <form class="navbar-form navbar-right" role="search"> 
+                <input type="text" id="search" name="search" placeholder="Search here"> 
+                <button type="submit" id="search-submit"><i class="fa fa-search"></i></button> 
+            </form> 
+        </div> 
+        <!-- /.navbar-collapse --> 
+    </div> 
+</div> 
 <!-- End navbar list container -->

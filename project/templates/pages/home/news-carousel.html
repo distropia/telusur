@@ -1,0 +1,285 @@
+{% load static %}
+{% load humanize %}
+
+<!-- carousel box -->
+
+<!-- article box -->
+<div class="article-box">
+	<div class="title-section">
+		<h1><span>Latest Articles</span></h1>
+	</div>
+
+    {% for post in posts|slice:"0:3" %}
+	    <div class="news-post article-post">
+	        <div class="row">
+	            <div class="col-sm-5">
+	                <div class="post-gallery">
+	                    <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
+	                </div>
+	            </div>
+	            <div class="col-sm-7">
+	                <div class="post-content">
+	                    <a href="politcs-category.html">{{ post.categories.0.name }}</a>
+	                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+	                    <ul class="post-tags">
+	                        <li><i class="fa fa-clock-o"></i>{{ post.pub_date|naturaltime }}</li>
+	                        <li><i class="fa fa-user"></i>by <a href="#">{{ post.author.first_name }} {{ post.author.last_name }}</a></li>
+	                        <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+	                        <li><i class="fa fa-eye"></i>{{ post.views }}</li>
+	                    </ul>
+	                    <p>{{ post.content|safe|slice:"0:200" }}</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    {% endfor %}
+
+	<div class="news-post article-post">
+		<div class="row">
+			<div class="list-line-posts list-line-latest-art">
+				<div class="col-md-12">
+					<div class="owl-wrapper">
+						<div class="owl-carousel" data-num="3">
+
+							<div class="item list-post">
+								<img src="{% static 'upload/news-posts/listw5.jpg' %}" alt="">
+								<div class="post-content">
+									<a href="politics-category.html">Politics</a>
+									<h2><a href="single-post.html">Donec odio. Quisque volutpat mattis eros. Nullam malesuada </a></h2>
+									<ul class="post-tags">
+										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="item list-post">
+								<img src="{% static 'upload/news-posts/listw4.jpg' %}" alt="">
+								<div class="post-content">
+									<a href="politics-category.html">World</a>
+									<h2><a href="single-post.html">Nullam malesuada erat ut turpis. Suspendisse urna nibh</a></h2>
+									<ul class="post-tags">
+										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="item list-post">
+								<img src="{% static 'upload/news-posts/listw3.jpg' %}" alt="">
+								<div class="post-content">
+									<a href="politics-category.html">Business</a>
+									<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+									<ul class="post-tags">
+										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="item list-post">
+								<img src="{% static 'upload/news-posts/listw2.jpg' %}" alt="">
+								<div class="post-content">
+									<a href="politics-category.html">Election</a>
+									<h2><a href="single-post.html">Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. </a></h2>
+									<ul class="post-tags">
+										<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+    {% for post in posts|slice:"4:7" %}
+	    <div class="news-post article-post">
+	        <div class="row">
+	            <div class="col-sm-5">
+	                <div class="post-gallery">
+	                    <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
+	                </div>
+	            </div>
+	            <div class="col-sm-7">
+	                <div class="post-content">
+	                    <a href="politcs-category.html">{{ post.categories.0.name }}</a>
+	                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+	                    <ul class="post-tags">
+	                        <li><i class="fa fa-clock-o"></i>{{ post.pub_date|naturaltime }}</li>
+	                        <li><i class="fa fa-user"></i>by <a href="#">{{ post.author.first_name }} {{ post.author.last_name }}</a></li>
+	                        <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+	                        <li><i class="fa fa-eye"></i>{{ post.views }}</li>
+	                    </ul>
+	                    <p>{{ post.content|safe|slice:"0:200" }}</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    {% endfor %}
+
+	<div class="news-post article-post">
+		<div class="row">
+			<div class="features-video-box owl-wrapper latest-articles-video-list">
+				<div class="col-md-12">
+					<div class="owl-carousel" data-num="4">
+				
+						<div class="item news-post video-post">
+							<img alt="" src="{% static 'upload/news-posts/video1.jpg' %}">
+							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+							<div class="hover-box">
+								<h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio. </a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+								</ul>
+							</div>
+						</div>
+					
+						<div class="item news-post video-post">
+							<img alt="" src="{% static 'upload/news-posts/video2.jpg' %}">
+							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+							<div class="hover-box">
+								<h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+								</ul>
+							</div>
+						</div>
+					
+						<div class="item news-post video-post">
+							<img alt="" src="{% static 'upload/news-posts/video3.jpg' %}">
+							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+							<div class="hover-box">
+								<h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+								</ul>
+							</div>
+						</div>
+					
+						<div class="item news-post video-post">
+							<img alt="" src="{% static 'upload/news-posts/video4.jpg' %}">
+							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+							<div class="hover-box">
+								<h2><a href="single-post.html">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+								</ul>
+							</div>
+						</div>
+					
+						<div class="item news-post video-post">
+							<img alt="" src="{% static 'upload/news-posts/video1.jpg' %}">
+							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+							<div class="hover-box">
+								<h2><a href="single-post.html">Lorem ipsum dolor sit consectetuer adipiscing elit. Donec odio. </a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+								</ul>
+							</div>
+						</div>
+					
+						<div class="item news-post video-post">
+							<img alt="" src="{% static 'upload/news-posts/video2.jpg' %}">
+							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+							<div class="hover-box">
+								<h2><a href="single-post.html">Quisque volutpat mattis eros. </a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+								</ul>
+							</div>
+						</div>
+					
+						<div class="item news-post video-post">
+							<img alt="" src="{% static 'upload/news-posts/video3.jpg' %}">
+							<a href="https://www.youtube.com/watch?v=LL59es7iy8Q" class="video-link"><i class="fa fa-play-circle-o"></i></a>
+							<div class="hover-box">
+								<h2><a href="single-post.html">Nullam malesuada erat ut turpis. </a></h2>
+								<ul class="post-tags">
+									<li><i class="fa fa-clock-o"></i>27 may 2013</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    {% for post in posts|slice:"8:11" %}
+	    <div class="news-post article-post">
+	        <div class="row">
+	            <div class="col-sm-5">
+	                <div class="post-gallery">
+	                    <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
+	                </div>
+	            </div>
+	            <div class="col-sm-7">
+	                <div class="post-content">
+	                    <a href="politcs-category.html">{{ post.categories.0.name }}</a>
+	                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+	                    <ul class="post-tags">
+	                        <li><i class="fa fa-clock-o"></i>{{ post.pub_date|naturaltime }}</li>
+	                        <li><i class="fa fa-user"></i>by <a href="#">{{ post.author.first_name }} {{ post.author.last_name }}</a></li>
+	                        <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+	                        <li><i class="fa fa-eye"></i>{{ post.views }}</li>
+	                    </ul>
+	                    <p>{{ post.content|safe|slice:"0:200" }}</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    {% endfor %}
+
+	<!-- google addsense -->
+	<div class="advertisement">
+		<div class="desktop-advert">
+			<span>Advertisement</span>
+			<img src="{% static 'upload/addsense/600x80.jpg' %}" alt="">
+		</div>
+		<div class="tablet-advert">
+			<span>Advertisement</span>
+			<img src="{% static 'upload/addsense/468x60-white.jpg' %}" alt="">
+		</div>
+		<div class="mobile-advert">
+			<span>Advertisement</span>
+			<img src="{% static 'upload/addsense/300x250.jpg' %}" alt="">
+		</div>
+	</div>
+	<!-- End google addsense -->
+
+	
+
+    {% for post in posts|slice:"12:15" %}
+	    <div class="news-post article-post">
+	        <div class="row">
+	            <div class="col-sm-5">
+	                <div class="post-gallery">
+	                    <img src="{{ request.scheme }}://{{ request.get_host }}/{{ post.attachment.path }}" alt="">
+	                </div>
+	            </div>
+	            <div class="col-sm-7">
+	                <div class="post-content">
+	                    <a href="politcs-category.html">{{ post.categories.0.name }}</a>
+	                    <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+	                    <ul class="post-tags">
+	                        <li><i class="fa fa-clock-o"></i>{{ post.pub_date|naturaltime }}</li>
+	                        <li><i class="fa fa-user"></i>by <a href="#">{{ post.author.first_name }} {{ post.author.last_name }}</a></li>
+	                        <li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
+	                        <li><i class="fa fa-eye"></i>{{ post.views }}</li>
+	                    </ul>
+	                    <p>{{ post.content|safe|slice:"0:200" }}</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    {% endfor %}
+	<!-- End article box -->
+	
+	<div class="center-button">
+	    <a href="#"><i class="fa fa-refresh"></i> Lihat Semua</a>
+	</div>
+
+</div>
+<!-- End carousel box -->

@@ -2,32 +2,17 @@
 
 <!-- footer ================================================== -->
 <footer>
-    <div class="container">
+	<div class="container">
+
         <div class="footer-widgets-part">
             <div class="row">
-                {% include 'components/footer/about.html-asdf' %}
-                {% include 'components/footer/tags.html' %}
-{#                {% include 'components/footer/news-random.html' %}#}
-{#                {% include 'components/footer/flickr-photos.html' %}#}
-
+                {% include 'components/footer/about.html' %}
+                {% include 'components/footer/popular-tags.html' %}
+                {% include 'components/footer/news-random.html' %}
+                {% include 'components/footer/flickr-photos.html' %}
             </div>
-        </div>
-        <div class="footer-last-line">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; COPYRIGHT 2018 Telusur</p>
-                </div>
-                <div class="col-md-6">
-                    <nav class="footer-nav">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+		</div>
+        {% include 'components/footer/footer-last-line.html' %}
+	</div>
 </footer>
 <!-- End footer -->

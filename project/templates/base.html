@@ -1,51 +1,52 @@
 {% load static %}
+
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
-    <title>Telusur | Aktual | Simpel | Bening</title>
+	<title>Telusur | Aktual | Simpel | Bening</title>
 
-    <meta charset="utf-8">
+	<meta charset="utf-8">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
-{#    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">#}
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.bxslider.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}" media="screen">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic' rel='stylesheet' type='text/css'>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' %}" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" media="screen">	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/jquery.bxslider.css' %}" media="screen">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.css' %}" media="screen">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" media="screen">	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}" media="screen">
     <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/ticker-style.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="screen">
-
+	<link rel="stylesheet" type="text/css" href="{% static 'css/ticker-style.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" media="screen">
 </head>
 <body>
 
-<!-- Container -->
-<div id="container">
+	<!-- Container -->
+	<div id="container">
 
-    {% block content %}{% endblock %}
+	    {% block content %}{% endblock %}
 
-    {% include 'components/footer/footer-index.html' %}
+	    {% include 'components/footer/footer-index.html' %}
 
-</div>
-<!-- End Container -->
+	</div>
+	<!-- End Container -->
+	
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.migrate.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.ticker.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.imagesloaded.min.js' %}"></script>
+  	<script type="text/javascript" src="{% static 'js/jquery.isotope.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/theia-sticky-sidebar.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/sticky.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/retina-1.1.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
-<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.migrate.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.bxslider.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.ticker.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.imagesloaded.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery.isotope.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/theia-sticky-sidebar.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/sticky.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/retina-1.1.0.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
