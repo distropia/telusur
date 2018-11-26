@@ -1279,7 +1279,7 @@ ul.category-filter-posts li a.active:after {
 /*-------------------------------------------------*/
 /* heading news style */
 .heading-news2 {
-  padding: 40px 0;
+  padding: 10px 0 50px 0;
   background: url('../upload/banners/back.jpg') center center;
   background-size: cover;
   -webkit-background-size: cover;
