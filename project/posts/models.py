@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
@@ -30,7 +32,9 @@ class Attachment(models.Model):
     attch_type = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return self.title
+        return "<a href=\"%s\">%s</a>" % (os.path.join(os.path.abspath(self.path)), self.title)
+
+    __str__.allow_tags = True
 
 
 class Post(models.Model):
@@ -42,7 +46,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, null=True, max_length=200, editable=False)
     categories = models.ManyToManyField(Category)
     tags = models.ManyToManyField(Tag) 
-    attachment = models.ForeignKey(Attachment, null=True, on_delete=models.CASCADE)
+    attachment = models.ImageField(null=True)
     publish = models.BooleanField(default=False)
     draft = models.BooleanField(default=False)
     views = models.IntegerField(null=True, default=0, editable=False)
