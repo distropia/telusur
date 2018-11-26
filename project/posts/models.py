@@ -46,7 +46,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, null=True, max_length=200, editable=False)
     categories = models.ManyToManyField(Category)
     tags = models.ManyToManyField(Tag) 
-    attachment = models.ImageField(null=True)
+    attachment = models.ForeignKey(Attachment, null=True, on_delete=models.SET_NULL)
     publish = models.BooleanField(default=False)
     draft = models.BooleanField(default=False)
     views = models.IntegerField(null=True, default=0, editable=False)
