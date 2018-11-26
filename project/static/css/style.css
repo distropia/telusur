@@ -632,7 +632,8 @@ header .list-line-posts div.list-post {
   -o-box-shadow: 0 0 10px #dedede;
 }
 header .list-line-posts div.list-post img {
-  width: 109px;
+  height: 109px;
+  width: 455px;
 }
 header .list-line-posts div.list-post .post-content {
   padding: 15px 20px;

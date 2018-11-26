@@ -11,14 +11,6 @@
                 {%  for post in latest_posts %}
                 <div class="item list-post">
                     <img src="{{ post.attachment.path }}" alt="">
-                    <div class="post-content">
-                        <a href="politics-category.html">{{ post.categories.0.name }}</a>
-                        <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
-                        </h2>
-                        <ul class="post-tags">
-                            <li><i class="fa fa-clock-o"></i>{{  post.pub_date|naturaltime }}</li>
-                        </ul>
-                    </div>
                 </div>
                 {% endfor %}
 
