@@ -59,9 +59,8 @@ target/
 
 \.venv/
 
+# ignore sqlite
 *.sqlite3
-
-*.xml
 
 project/telusur/settings.py
 project/static/attachments/
@@ -70,3 +69,6 @@ telusur
 
 .idea
 venv
+
+# ignore xml
+*.xml
